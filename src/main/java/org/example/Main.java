@@ -12,12 +12,12 @@ public class Main {
         wh.addProduct(p2);
         wh.addProduct(p3);
 
-        wh.listAllProducts();
+        wh.getAllProducts();
 
         System.out.println("___");
 
         wh.removeProductById(1);
 
-        wh.listAllProducts();
+        wh.getAllProducts();
     }
 }

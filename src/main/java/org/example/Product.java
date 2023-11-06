@@ -1,14 +1,12 @@
 package org.example;
 
-import java.util.Currency;
-
 public class Product {
     private int id;
     private String name;
     private int price;
     private String description;
 
-    public Product(int id, String name, Currency price, String description) {
+    public Product(int id, String name, int price, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -31,11 +29,11 @@ public class Product {
         this.name = name;
     }
 
-    public Currency getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(Currency price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -46,7 +44,6 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     @Override
     public String toString() {

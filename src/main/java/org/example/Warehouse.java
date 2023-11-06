@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Warehouse {
     private int id;
     private String location;
-    private ArrayList<Product>products;
+    private ArrayList<Product> products;
 
     public Warehouse(int id, String location) {
         this.id = id;
-        this.location = location;
+        setLocation(location);
 
-        products = new ArrayList<>;
+        products = new ArrayList<>();
     }
 
     public int getId() {
@@ -27,7 +27,16 @@ public class Warehouse {
     }
 
     public void setLocation(String location) {
-        this.location = location;
+        // kista / KISTA / kIsTa --> Kista
+
+        String firstLetter = location.substring(0, 1).toUpperCase();
+        String rest = location.substring(1).toLowerCase();
+
+        this.location = firstLetter + rest;
+    }
+
+    public ArrayList<Product> getAllProducts() {
+        return products;
     }
 
     /**
@@ -35,24 +44,36 @@ public class Warehouse {
      *
      * @param product The product to add to the warehouse stock
      */
-    public void addProduct(Product product){
-    products.add(product);
+    public void addProduct(Product product) {
+        products.add(product);
     }
 
     /**
      * Removes one product with the specified id
+     *
      * @param id The product id to remove
      */
-    public void removeProductById(int id){
-        for (int i = 0; i < products.size() ; i++) {
-            Product product = products.get(i);
-        }
-    }
+    public void removeProductById(int id) {
+        // remove => id:1
+        // id:1, name:iphone <--
+        // id:2 name:juice
+        // id:1 name:iphone
 
-    public void listAllProducts(){
-        for (var product:products) {
-            System.out.println(product);
-            
+        // Loop over every product
+        for (int i = 0; i < products.size(); i++) {
+
+            // Save the product to local variable
+            Product product = products.get(i);
+
+            // If current products id == id to remove
+            if (product.getId() == id) {
+
+                // Remove product
+                products.remove(i);
+
+                // Exit loop and method
+                return;
+            }
         }
     }
 }
