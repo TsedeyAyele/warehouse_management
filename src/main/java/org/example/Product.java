@@ -1,32 +1,32 @@
 package org.example;
 
 public class Product {
-    private int id;
-    private String name;
+    private int productId;
+    private String productName;
     private int price;
     private String description;
 
-    public Product(int id, String name, int price, String description) {
-        this.id = id;
-        this.name = name;
+    public Product(int id, String productName, int price, String description) {
+        this.productId = id;
+        this.productName = productName;
         this.price = price;
         this.description = description;
     }
 
-    public int getId() {
-        return id;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public int getPrice() {
@@ -48,8 +48,8 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 '}';

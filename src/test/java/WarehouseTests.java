@@ -3,16 +3,15 @@ import org.example.Product;
 import org.example.Warehouse;
 
 public class WarehouseTests {
-
     @Test
-    public void testSetLocationConstructor(){
+    public void testSetLocationConstructor() {
         var warehouse = new Warehouse(1, "kista");
 
         assert warehouse.getLocation().equals("Kista");
     }
 
     @Test
-    public void testSetLocation(){
+    public void testSetLocation() {
         var warehouse = new Warehouse(1, "kista");
 
         warehouse.setLocation("kista");
@@ -21,7 +20,7 @@ public class WarehouseTests {
     }
 
     @Test
-    public void testAddProduct(){
+    public void testAddProduct() {
         var warehouse = new Warehouse(1, "Kista");
 
         var product = new Product(1, "iphone", 10, "An exlusive phone");
@@ -29,11 +28,12 @@ public class WarehouseTests {
         warehouse.addProduct(product);
 
         assert warehouse.getAllProducts().size() == 1;
-        assert warehouse.getAllProducts().getFirst().getId() == 1;
+        assert warehouse.getAllProducts().get(0).getProductId() == 1;
+
     }
 
     @Test
-    public void testRemoveProductById(){
+    public void testRemoveProductById() {
         var warehouse = new Warehouse(1, "Kista");
 
         var product1 = new Product(1, "iphone", 10, "An exlusive phone");
@@ -47,7 +47,8 @@ public class WarehouseTests {
         warehouse.removeProductById(1);
 
         assert warehouse.getAllProducts().size() == 2;
-        assert warehouse.getAllProducts().getFirst().getId() == 2;
+        assert warehouse.getAllProducts().get(0).getProductId() == 2;
     }
 
 }
+

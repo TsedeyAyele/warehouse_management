@@ -60,20 +60,26 @@ public class Warehouse {
         // id:1 name:iphone
 
         // Loop over every product
+        int index= getIndexOfFirstProductById(id);
+        products.remove(index);
+    }
+
+    private int getIndexOfFirstProductById(int productId) {
         for (int i = 0; i < products.size(); i++) {
 
             // Save the product to local variable
             Product product = products.get(i);
 
             // If current products id == id to remove
-            if (product.getId() == id) {
+            if (product.getProductId() == productId) {
 
                 // Remove product
-                products.remove(i);
 
                 // Exit loop and method
-                return;
+                return i;
             }
+
         }
+        return -1;
     }
 }
